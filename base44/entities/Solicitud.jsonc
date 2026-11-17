@@ -1,0 +1,70 @@
+{
+  "name": "Solicitud",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "title": "Nombre",
+      "description": "Nombre del cliente"
+    },
+    "telefono": {
+      "type": "string",
+      "title": "Tel\u00e9fono",
+      "description": "Tel\u00e9fono de contacto"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "title": "Email",
+      "description": "Email de contacto"
+    },
+    "idea": {
+      "type": "string",
+      "title": "Idea del tatuaje",
+      "description": "Descripci\u00f3n de la idea del tatuaje"
+    },
+    "fotos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "Fotos de referencia",
+      "description": "URLs de fotos de referencia adjuntadas"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Nuevo",
+        "Contactado",
+        "Agendado"
+      ],
+      "default": "Nuevo",
+      "title": "Status",
+      "description": "Estado de la solicitud"
+    }
+  },
+  "required": [
+    "nombre",
+    "telefono",
+    "email",
+    "idea"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
